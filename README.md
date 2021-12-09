@@ -2,7 +2,7 @@
 
 
 UseCases: 
-  Quest: 
+  - [ ] Quest: 
   - [x] Create Quest
   - [x] List all Quest
   Test:
