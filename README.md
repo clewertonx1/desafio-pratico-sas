@@ -22,4 +22,4 @@ UseCases:
     - [ ] Finish simulated
     - [ ] Score calculate
     - [ ] Raking best students by score
-  
+
