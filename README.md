@@ -16,10 +16,5 @@ UseCases:
     - [x] List Simulated by id
     - [x] Add test to Simulated
    - [ ] Student:
-    - [x] Create Student
-    - [x] List all Students
-    - [ ] Start simulated
-    - [ ] Finish simulated
-    - [ ] Score calculate
-    - [ ] Raking best students by score
+    
 
