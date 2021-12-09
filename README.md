@@ -1,11 +1,20 @@
+
 # desafio-pratico-sas
 
+
+To run: 
+
+    docker-compose up -d
+    yarn typeorm migrations:run
+    
+   Insominia Collection for test and examples:
+	   https://drive.google.com/file/d/1h5-b9JipHUvQH6foeWho6P_vKi8gHHb8/view?usp=sharing
 
 UseCases: 
   - [x] Quest: 
     - [x] Create Quest
     - [x] List all Quest
-  - [ ] Test:
+  - [x] Test:
     - [x] Create Test
     - [x] List all Test
     - [x] List templates Test
@@ -16,8 +25,13 @@ UseCases:
     - [x] List Simulated by id
     - [x] Add test to Simulated
    - [x] Student:
-    - [x] Create Simulated
-    - [x] List all Simulated
-    - [x] List Simulated by id
-    - [x] Add test to Simulated
+	    - [x] Create Student
+	    - [x] List all Student
+	    - [ ] Start Simulated
+	    - [ ] Finish Simulated
+	    - [ ] Calculate score
+	    - [ ] Get Rankings by best scores
+	    
+		
 
+	
