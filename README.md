@@ -18,8 +18,8 @@ UseCases:
    - [ ] Student:
     - [x] Create Student
     - [x] List all Students
-    - [] Start simulated
-    - [] Finish simulated
-    - [] Score calculate
-    - [] Raking best students by score
+    - [ ] Start simulated
+    - [ ] Finish simulated
+    - [ ] Score calculate
+    - [ ] Raking best students by score
   
