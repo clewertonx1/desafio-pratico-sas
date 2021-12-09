@@ -2,20 +2,20 @@
 
 
 UseCases: 
-  - [ ] Quest: 
+  - [x] Quest: 
     - [x] Create Quest
     - [x] List all Quest
-  Test:
+  - [ ] Test:
     - [x] Create Test
     - [x] List all Test
     - [x] List templates Test
     - [x] Add quest to Test
-  Simulated: 
+  - [x] Simulated: 
     - [x] Create Simulated
     - [x] List all Simulated
     - [x] List Simulated by id
     - [x] Add test to Simulated
-   Student:
+   - [ ] Student:
     - [x] Create Student
     - [x] List all Students
     - [] Start simulated
