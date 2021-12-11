@@ -45,17 +45,39 @@ class StudentRepository implements IStudentRepository{
 
     return student
   }
-  finishSimulated({ simulatedStudentId, tests }: IFinishSimulatedDTO): Promise<Student> {
-    throw new Error("Method not implemented.");
+  async finishSimulated({ simulatedStudentId, studentId }: IFinishSimulatedDTO): Promise<Student> {
+    const student = await this.studentRepository.findOne({id: studentId})
+    student.simulateds.forEach(simulated => {
+      if(simulated.simulatedId === simulatedStudentId){
+        simulated.done = true
+      }
+    })
+    await this.studentRepository.save(student)
+    return student
   }
 
-  async  findSimulatedInStudent({studentId, simulatedId}){
-    
+  async findSimulatedInStudent({studentId, simulatedId}){   
     const student = await this.studentRepository.findOne({id: studentId})
-    console.log(student)
     return student.simulateds.filter(simulated => {
       return simulated.simulatedId === simulatedId
     })
+  }
+  async checkAllQuestionHaveBeenAnswered({studentId, simulatedId}){
+    const student = await this.studentRepository.findOne({id: studentId})
+    let countAlreadyAnswerQuests
+    let countMissingAnswerQuests
+    student.simulateds.forEach(simulated => {
+      simulated.tests.forEach(test => {
+        test.quests.forEach(quest => {
+          if(quest.done){
+            countAlreadyAnswerQuests = countAlreadyAnswerQuests + 1
+          }else{
+            countMissingAnswerQuests = countMissingAnswerQuests + 1
+          }
+        })
+      })
+    })
+    return {countAlreadyAnswerQuests, countMissingAnswerQuests}
   }
 
   async answerQuestion({studentId, simulatedId, testId,questId, response}): Promise<Student>{
@@ -77,8 +99,6 @@ class StudentRepository implements IStudentRepository{
     await this.studentRepository.save(student)
     return student 
   }
-
-
 
   async create({name}: ICreateStudentDTO): Promise<Student>{
     const student = this.studentRepository.create({name})

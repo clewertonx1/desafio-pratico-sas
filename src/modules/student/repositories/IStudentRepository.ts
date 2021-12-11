@@ -5,13 +5,7 @@ interface ICreateStudentDTO{
 }
 interface IFinishSimulatedDTO{
   simulatedStudentId: string,
-  tests: [
-    testId: string,
-    studentResponses: [
-      questId: string,
-      response: string,
-    ]
-  ]
+  studentId: number,
 }
 
 interface IStudentRepository{
@@ -21,8 +15,9 @@ interface IStudentRepository{
   startSimulated({simulated, studentId}): Promise<Student>
   findByName(name): Promise<Student>
   findSimulatedInStudent({studentId, simulatedId})
-  finishSimulated({simulatedStudentId, tests}: IFinishSimulatedDTO): Promise<Student>
+  finishSimulated({simulatedStudentId, studentId}: IFinishSimulatedDTO): Promise<Student>
   answerQuestion({studentId, simulatedId, testId,questId, response})
+  checkAllQuestionHaveBeenAnswered({studentId, simulatedId})
 }
 
 export {ICreateStudentDTO, IStudentRepository, IFinishSimulatedDTO}
