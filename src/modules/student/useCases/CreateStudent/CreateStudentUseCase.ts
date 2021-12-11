@@ -21,7 +21,6 @@ class CreateStudentUseCase{
     }
 
     const studentAlreadyExist = await this.studentRepository.findByName(name)
-    console.log(studentAlreadyExist)
     if(studentAlreadyExist){
       throw new Error("Student already exist")
     }

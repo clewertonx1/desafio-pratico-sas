@@ -6,7 +6,7 @@ import {inject, injectable} from 'tsyringe'
 import { ISimulatedRepository } from "../../../simulated/repotositories/ISimultedRepository";
 
 interface IRequest {
-  studentId: number,
+  studentId: string,
   simulatedId: string
 }
 
@@ -27,23 +27,15 @@ class StartSimualatedUseCase{
       throw new Error("simulatedId cannot be null")
     }
 
-    const studentAlreadyExist = await this.studentRepository.findById(studentId)
+    // const studentAlreadyExist = await this.studentRepository.findById(studentId)
 
-    if(!studentAlreadyExist){
-      throw new Error("Student not exist")
-    }
-    
+    // if(!studentAlreadyExist){
+    //   throw new Error("Student not exist")
+    // }
+
     const simulated = await this.simulatedRepository.findById(simulatedId)
-
-    if(!simulated){
-      throw new Error("Simulated not exist")
-    }
-
-    const simulatedAlreadyStarted = this.studentRepository.findSimulatedInStudent({simulatedId, studentId})
-
-    if(simulatedAlreadyStarted){
-      throw new Error("Simulated already started")
-    }
+ 
+    // const simulatedAlreadyStarted = await this.studentRepository.findSimulatedInStudent({studentId, simulated})
     const student = await this.studentRepository.startSimulated({studentId, simulated})
 
     return student

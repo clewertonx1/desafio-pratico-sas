@@ -41,11 +41,11 @@ class AddTestToSimulatedUseCase{
       throw new Error("The simulated not exist")
     }
 
-    const testAlreadyAddToSimulated =  simulatedAlreadyExist.tests.find(test => test.id === parseInt(testId))
+    // const testAlreadyAddToSimulated =  simulatedAlreadyExist.tests.find(test => test.id === parseInt(testId))
 
-    if(testAlreadyAddToSimulated){
-      throw new Error("The test already exists in simulated")
-    }
+    // if(testAlreadyAddToSimulated){
+    //   throw new Error("The test already exists in simulated")
+    // }
 
     const simulated = await this.simulatedRepository.addTestToSimulated({simulatedId, test})
     return simulated

@@ -12,7 +12,7 @@ class SimulatedRepository implements ISimulatedRepository{
   }
 
   async create({name, tests}: ICreateSimulatedDTO): Promise<Simulated>{
-    const simulated = this.repository.create({name, tests})
+    const simulated = this.repository.create({name})
     await this.repository.save(simulated)
     return simulated
   }
@@ -25,7 +25,6 @@ class SimulatedRepository implements ISimulatedRepository{
     const simulated = await this.repository.findOne({name})
     return simulated
   }
-
   async addTestToSimulated({test, simulatedId}): Promise<Simulated>{
     const simualated = await this.repository.findOne({id: simulatedId})
     simualated.tests.push(test)

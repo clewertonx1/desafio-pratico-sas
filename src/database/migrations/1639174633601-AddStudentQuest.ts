@@ -1,30 +1,27 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateQuestion1638739142388 implements MigrationInterface {
+export class AddStudentQuest1639174633601 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         queryRunner.createTable(new Table({
-            name: "question",
+            name: "StudentQuest",
             columns: [
                 {
                     name: "id",
                     type: "int",
                     isPrimary: true,
-                },
+                },     
                 {
-                    name: "questionStatement",
+                    name: "response",
                     "type": "varchar"
-                },
-                {
-                    name: "questionNumber",
-                    "type": "int"
-                },
+                },  
             ],
         }))
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("question")
+        await queryRunner.dropTable("StudentQuest")
     }
+
 
 }

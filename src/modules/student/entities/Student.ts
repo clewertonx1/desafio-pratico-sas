@@ -1,6 +1,5 @@
-
 import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, } from 'typeorm'
-import { SimulatedStudent } from './SimulatedStudent';
+import { StudentSimulated } from './StudentSimulated';
 
 @Entity("Student")
 class Student{
@@ -11,10 +10,9 @@ class Student{
     @Column()
     name: string;
 
-    @OneToMany(type => SimulatedStudent, simulatedStudent => simulatedStudent.student, {eager: true, cascade: true})
-    @JoinColumn()
-    simulateds: SimulatedStudent[]
-
+    @OneToMany(type => StudentSimulated, simulatedStudent => simulatedStudent.student, {eager: true, cascade: true})
+    simulateds: StudentSimulated[]
+    
     
 }
 

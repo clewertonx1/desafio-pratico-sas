@@ -13,6 +13,6 @@ const listTemplateTestController = new ListTemplateTestController()
 
 testRoutes.post("/", createTestController.handle)
 testRoutes.get("/", listTestsController.handle)
-testRoutes.get("/questions/:id", listTemplateTestController.handle)
+testRoutes.get("/:id", listTemplateTestController.handle)
 testRoutes.post("/addQuestion", addQuestionToTestController.handle)
 export {testRoutes} 

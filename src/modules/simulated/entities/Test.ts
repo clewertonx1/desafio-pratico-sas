@@ -1,5 +1,5 @@
 
-import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from 'typeorm'
+import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn, ManyToOne, OneToMany} from 'typeorm'
 import { Question } from './question';
 
 @Entity("test")
@@ -12,12 +12,10 @@ class Test{
     name: string;
 
     @ManyToMany(type => Question, {eager: true, cascade: true})
-
     @JoinTable()
     questions: Question[]
 
-    @Column({default: false})
-    finished: boolean
+    
     
 }
 

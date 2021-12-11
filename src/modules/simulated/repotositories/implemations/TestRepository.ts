@@ -28,7 +28,7 @@ class TestRepository implements ITestRepository{
   async addQuestionToTest({question, testId}): Promise<Test>{
     const test = await this.repository.findOne({id: testId})
     test.questions.push(question)
-    await this,this.repository.save(test)
+    await this.repository.save(test)
     return test
   }
   
