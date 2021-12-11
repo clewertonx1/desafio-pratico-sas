@@ -27,7 +27,8 @@ UseCases:
    - [x] Student:
 	    - [x] Create Student
 	    - [x] List all Student
-	    - [ ] Start Simulated
+	    - [x] Start Simulated
+	    - [x] Answer Quest
 	    - [ ] Finish Simulated
 	    - [ ] Calculate score
 	    - [ ] Get Rankings by best scores
