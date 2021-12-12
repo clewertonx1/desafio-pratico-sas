@@ -29,9 +29,9 @@ UseCases:
 	    - [x] List all Student
 	    - [x] Start Simulated
 	    - [x] Answer Quest
-	    - [ ] Finish Simulated
-	    - [ ] Calculate score
-	    - [ ] Get Rankings by best scores
+	    - [x] Finish Simulated
+	    - [x] Calculate score
+	    - [x] Get Rankings by best scores
 	    
 		
 
