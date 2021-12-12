@@ -3,43 +3,46 @@ import { Student } from "../../entities/Student";
 import { IStudentRepository } from "../../repositories/IStudentRepository";
 
 import {inject, injectable} from 'tsyringe'
-import { ISimulatedRepository } from "../../../simulated/repotositories/ISimultedRepository";
 
 interface IRequest {
   studentId: string,
-  simulatedId: string
+  simulatedId: string,
 }
 
 @injectable()
-class StartSimualatedUseCase{
+class FinishSimulatedUseCase{
   constructor(
     @inject("StudentRepository")
     private studentRepository: IStudentRepository,
-    @inject("SimulatedRepository")
-    private simulatedRepository: ISimulatedRepository,
   ){}
-  async execute({studentId, simulatedId}: IRequest):Promise<Student>{
+  async execute({studentId, simulatedId}: IRequest):Promise<any>{
 
     if(!studentId){
       throw new Error("studentId cannot be null")
     }
+
     if(!simulatedId){
       throw new Error("simulatedId cannot be null")
     }
 
-    // const studentAlreadyExist = await this.studentRepository.findById(studentId)
+    const simulatedAlreadyStarted = this.studentRepository.findSimulatedInStudent({simulatedId, studentId})
 
-    // if(!studentAlreadyExist){
-    //   throw new Error("Student not exist")
-    // }
+    if(!simulatedAlreadyStarted){
+      throw new Error("Simulated not started")
+    }
 
-    const simulated = await this.simulatedRepository.findById(simulatedId)
- 
-    // const simulatedAlreadyStarted = await this.studentRepository.findSimulatedInStudent({studentId, simulated})
-    const student = await this.studentRepository.startSimulated({studentId, simulated})
+    const {countTestAlreadyDone, countTestMissing} = await this.studentRepository.checkAllTestAlreadyDone({studentId, simulatedId})
+   
+    if(countTestMissing !== 0){
+      throw new Error(`Missing ${countTestMissing} test`)
+    }
 
-    return student
+  
+    const score = await this.studentRepository.calculateAndSaveSimulatedScore({studentId, simulatedId})
+
+
+    return score
   }
 }
 
-export{StartSimualatedUseCase}
+export{FinishSimulatedUseCase}

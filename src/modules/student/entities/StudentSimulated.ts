@@ -11,6 +11,9 @@ class StudentSimulated{
     @Column()
     simulatedId: string
 
+    @Column("varchar", {default: "0"})
+    score: string
+
     @ManyToOne(type => Student, student => student.simulateds)
     student: Student
     

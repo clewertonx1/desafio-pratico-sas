@@ -17,6 +17,9 @@ class StudentTest{
     @Column("boolean", {default: false})
     done: boolean = false
 
+    @Column("varchar", {default: "0"})
+    score: string
+
     @OneToMany(type => StudentQuest, studentQuest => studentQuest.studentTest, {eager: true, cascade: true})
     quests: StudentQuest[]
     
