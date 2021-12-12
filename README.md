@@ -8,7 +8,7 @@ To run:
     yarn typeorm migrations:run
     
    Insominia Collection for test and examples:
-	   https://drive.google.com/file/d/1h5-b9JipHUvQH6foeWho6P_vKi8gHHb8/view?usp=sharing
+	  https://drive.google.com/file/d/1R-UUP2eQJIpImmvrlNOZBvI5Wao46Ej7/view?usp=sharing
 
 UseCases: 
   - [x] Quest: 
