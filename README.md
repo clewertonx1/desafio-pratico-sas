@@ -19,8 +19,11 @@ To run:
     docker-compose up -d
     yarn typeorm migrations:run
     
-   Insominia Collection for test and examples:
-	  https://drive.google.com/file/d/1R-UUP2eQJIpImmvrlNOZBvI5Wao46Ej7/view?usp=sharing
+Swagger docs: 
+http://localhost:3333/api-docs
+	
+Insominia Collection for more examples:
+https://drive.google.com/file/d/1R-UUP2eQJIpImmvrlNOZBvI5Wao46Ej7/view?usp=sharing
 
 UseCases: 
   - [x] Quest: 
