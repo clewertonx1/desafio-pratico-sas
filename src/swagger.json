@@ -1,0 +1,461 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Desafio pratico SAS Documentation",
+    "version": "1.0.0",
+    "contact": {
+      "email": "clewerton203@gmail.com"
+    }
+  },
+  "paths": {
+    "/question": {
+      "post": {
+        "tags": ["Question"],
+        "sumary": "Create a question",
+        "description": "Create a new question",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "questionStatement": {
+                    "type": "string"
+                  },
+                  "correctAnswer": {
+                    "type": "string"
+                  },
+                  "dificulty": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "questionStatement": "Quanto é 2 + 2 ?",
+                  "correctAnswer": "5",
+                  "dificulty": "facil"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "The question statament must be unique"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Question"],
+        "sumary": "List questions",
+        "description": "List all questions",
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          }
+        }
+      }
+    },
+    "/test": {
+      "post": {
+        "tags": ["Test"],
+        "sumary": "Create a new test",
+        "description": "Create a new test",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "Prova de quimica"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "The test name must be unique"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Test"],
+        "sumary": "List all tests",
+        "description": "List all tests",
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          }
+        }
+      }
+    },
+    "/test/{id}": {
+      "get": {
+        "tags": ["Test"],
+        "sumary": "Get test by a id",
+        "description": "Get specific test by id",
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          }
+        }
+      }
+    },
+    "/test/addQuestion": {
+      "post": {
+        "tags": ["Test"],
+        "sumary": "Add a question to a test",
+        "description": "Add a question to a test",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "testId": {
+                    "type": "string"
+                  },
+                  "questionId": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "testId": "1",
+                  "questionId": "1"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Question not exist"
+          }
+        }
+      }
+    },
+    "/simulated": {
+      "post": {
+        "tags": ["simulated"],
+        "sumary": "Create a new simulated",
+        "description": "Create a new simulated",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "ENEM 2021"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "The simulated name must be unique"
+          }
+        }
+      },
+      "get": {
+        "tags": ["simulated"],
+        "sumary": "List all simulateds",
+        "description": "List all simulateds",
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          }
+        }
+      }
+    },
+    "/simulated/{id}": {
+      "get": {
+        "tags": ["simulated"],
+        "sumary": "Get simulated by a id",
+        "description": "Get specific simulated by id",
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          }
+        }
+      }
+    },
+    "/simulated/addTest": {
+      "post": {
+        "tags": ["simulated"],
+        "sumary": "Add a test to a simulated",
+        "description": "Add a question to a test",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "testId": {
+                    "type": "string"
+                  },
+                  "simulatedId": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "testId": "1",
+                  "simulatedId": "1"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          },
+          "500": {
+            "description": "Test not exist"
+          }
+        }
+      }
+    },
+    "/student": {
+      "post": {
+        "tags": ["student"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "testId": {
+                    "type": "string"
+                  },
+                  "simulatedId": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "testId": "1",
+                  "simulatedId": "1"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "300": {
+            "description": "Student already exist"
+          }
+        }
+      },
+      "get": {
+        "tags": ["student"],
+        "sumary": "List all students",
+        "description": "List all students",
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          }
+        }
+      }
+    },
+    "/student/startSimulated": {
+      "post": {
+        "tags": ["student"],
+        "sumary": "Start simulated",
+        "description": "Start simulated",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "studentId": {
+                    "type": "string"
+                  },
+                  "simulatedId": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "studentId": "1",
+                  "simulatedId": "1"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          },
+          "400": {
+            "description": "Student already started simulated"
+          }
+        }
+      }
+    },
+    "/student/finishSimulated": {
+      "post": {
+        "tags": ["student"],
+        "sumary": "Finish simulated",
+        "description": "Finish simulated",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "studentId": {
+                    "type": "string"
+                  },
+                  "simulatedId": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "studentId": "1",
+                  "simulatedId": "1"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          },
+          "400": {
+            "description": "Missing answer some test"
+          }
+        }
+      }
+    },
+    "/student/finishTest": {
+      "post": {
+        "tags": ["student"],
+        "sumary": "Finish test",
+        "description": "Finish test",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "studentId": {
+                    "type": "string"
+                  },
+                  "simulatedId": {
+                    "type": "string"
+                  },
+                  "testId": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "studentId": "1",
+                  "simulatedId": "1",
+                  "testId": "1"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          },
+          "400": {
+            "description": "Missing answer some quest"
+          }
+        }
+      }
+    },
+    "/student/answerQuestion": {
+      "post": {
+        "tags": ["student"],
+        "sumary": "Answer a question",
+        "description": "Answer a question",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "propeties": {
+                  "studentId": {
+                    "type": "string"
+                  },
+                  "simulatedId": {
+                    "type": "string"
+                  },
+                  "testId": {
+                    "type": "string"
+                  },
+                  "questId": {
+                    "type": "string"
+                  },
+                  "response": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "studentId": "1",
+                  "simulatedId": "1",
+                  "testId": "1",
+                  "questId": "1",
+                  "response": "A"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucess"
+          },
+          "400": {
+            "description": "Student not exist"
+          }
+        }
+      }
+    },
+    "/student/getRanking/:{simulatedId}": {
+      "post": {
+        "tags": ["student"],
+        "sumary": "Get ranking of a simualted",
+        "description": "Get ranking of a simualted"
+      },
+      "responses": {
+        "200": {
+          "description": "Sucess"
+        },
+        "400": {
+          "description": "Simulated not exist"
+        }
+      }
+    }
+  }
+}
