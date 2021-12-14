@@ -1,10 +1,10 @@
 {
   "type": "postgres",
   "port": 5432,
-  "host": "localhost", 
+  "host": "localhost",
   "username": "admin",
   "password": "admin",
-  "database": "sas", 
+  "database": "sas",
   "migrations": ["./src/database/migrations/*.ts"],
   "entities": ["./src/modules/**/entities/*.ts"],
   "cli": {

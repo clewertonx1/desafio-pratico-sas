@@ -1,5 +1,6 @@
 import { Question } from "../../entities/question";
 import { IQuestionRepository } from "../../repotositories/IQuestionRepository";
+import {getRepository, Repository} from "typeorm"
 
 import {inject, injectable} from 'tsyringe'
 
