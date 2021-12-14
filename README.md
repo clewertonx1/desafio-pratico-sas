@@ -1,19 +1,17 @@
 
 
 
-<h1  align="center">desafio-pratico-sas</h1>
+<h1 align="center">desafio-pratico-sas<h1>
 <p align="center">
-
-
-    <a alt="Typescript">
-        <img src="https://badges.aleen42.com/src/typescript.svg" />
-    </a>
-    <a alt="Node">
-        <img src="https://badges.aleen42.com/src/node.svg" />
-    </a>
-    <a alt="Swagger-UI">
-        <img src="https://img.shields.io/badge/SwaggerUI-v2.9.2-green.svg">
-    </a>    
+  <a alt="Typescript">
+      <img src="https://badges.aleen42.com/src/typescript.svg" />
+  </a>
+  <a alt="Node">
+      <img src="https://badges.aleen42.com/src/node.svg" />
+  </a>
+  <a alt="Swagger-UI">
+      <img src="https://img.shields.io/badge/SwaggerUI-v2.9.2-green.svg">
+  </a>    
 </p>
 
 To run: 
